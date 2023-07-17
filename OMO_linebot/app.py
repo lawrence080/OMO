@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 import openai
+from OMO_aiBot.main import AI
 openai.api_key = os.getenv("OPEN_AI_KEY")
 # import flask related
 from flask import Flask, request, abort
@@ -51,11 +52,13 @@ def callback():
 # when receive text message
 @handler.add(MessageEvent, message=TextMessage)
 def keyword(event):
-    match event.message.text:
-        case "A":
-            reply = 'keyword a'
-        case _:
-            reply = event.message.text
+    chatbot = AI()
+    # chatbot.askQuestion()
+    # match event.message.text:
+    #     case "A":
+    #         reply = 'keyword a'
+    #     case _:
+    #         reply = event.message.text
     line_bot_api.reply_message( event.reply_token, TextSendMessage(reply) )
     
 # when receive postback
@@ -63,7 +66,7 @@ def keyword(event):
 def call_ai(event):
     match event.postback.data:
         case 'change-to-bbb':
-            reply = 'call ai'
+            reply = 'whats your problem'
         case 'change-to-aaa':
             reply = 'close ai'
     line_bot_api.reply_message( event.reply_token, TextSendMessage(reply) )

@@ -1,0 +1,32 @@
+{
+    "size": { "width": 2500, "height": 1686},
+    "selected": "true",
+    "name": "richmenu_b",
+    "chatBarText": "Tap here",
+    "areas": [
+        {
+            "bounds": { "x": 0, "y": 0, "width": 833, "height": 843},
+            "action": { "type": "message", "label": "A", "text": "A"}
+        },
+        {
+            "bounds": { "x": 834, "y": 0, "width": 833, "height": 843},
+            "action": { "type": "richmenuswitch", "label": "B", "richMenuAliasId": "aaa", "data": "change-to-aaa"}
+        },
+        {
+            "bounds": { "x": 1667, "y": 0, "width": 833, "height": 843},
+            "action": { "type": "message", "label": "C", "text": "C"}
+        },
+        {
+            "bounds": { "x": 0, "y": 844, "width": 833, "height": 843},
+            "action": { "type": "message", "label": "D", "text": "D"}
+        },
+        {
+            "bounds": { "x": 834, "y": 844, "width": 833, "height": 843},
+            "action": { "type": "message", "label": "E", "text": "E"}
+        },
+        {
+            "bounds": { "x": 1667, "y": 844, "width": 833, "height": 843},
+            "action": { "type": "message", "label": "F", "text": "F"}
+        }
+    ]
+}

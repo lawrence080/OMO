@@ -6,7 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
-.APIsecret.py/
+/APIsecret.py
+db/
+data/
+.chroma/
 
 # Distribution / packaging
 .Python

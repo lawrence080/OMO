@@ -58,7 +58,7 @@ class training(Bot):
         message.append(HumanMessage(content=ui))
         ai_response = chat(messages=message).content
         message.append(AIMessage(content=("ai: "+ai_response)))
-        file = open("trainBotdocument{0}.txt".format(value),"a+")
+        file = open("trainedData\\trainBotdocument{0}.txt".format(value),"a+")
         with file as txt_file:
             for line in message:
                 temp = line.content

@@ -10,6 +10,7 @@ __pycache__/
 db/
 data/
 .chroma/
+trainedData/
 
 # Distribution / packaging
 .Python

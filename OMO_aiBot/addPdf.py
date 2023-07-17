@@ -17,7 +17,7 @@ class addPdf2collecion:
         os.environ["OPENAI_API_KEY"] = APIsecret.OPEN_API_KEY
     def addFile(self):
         from langchain.document_loaders import PyPDFDirectoryLoader
-        self.pdf_folder_path = "C:\\Users\\lawrence\\Desktop\\Job\\meetingOnly\\data\\"
+        self.pdf_folder_path = "C:\\Users\\lawrence\\Desktop\\Job\\demo project\\OMO\\data"
         self.loader = PyPDFDirectoryLoader(self.pdf_folder_path)
         self.docs = self.loader.load()
         embeddings = OpenAIEmbeddings()

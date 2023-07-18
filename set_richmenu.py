@@ -57,7 +57,7 @@ file_path = os.path.join(os.path.split(__file__)[0] + '/static/richmenu_template
 with open(file_path) as f:
     body = json.load(f)
 
-b = Richmenu(body)   
-b.set_image("/Users/ying/OMO/OMO_linebot/static/image/first_rich_menu.png")
-b.set_alias_id("first")
+# b = Richmenu(body)   
+# b.set_image("/Users/ying/OMO/OMO_linebot/static/image/first_rich_menu.png")
+# b.set_alias_id("first")
 # b.post_richmenu()

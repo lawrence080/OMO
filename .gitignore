@@ -11,6 +11,11 @@ db/
 data/
 .chroma/
 trainedData/
+.\db/
+.db/
+/*DB.*
+/*Db.*
+.DS_Store
 
 # Distribution / packaging
 .Python

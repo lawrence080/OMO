@@ -1,5 +1,0 @@
- system: assume you are an Open AI answer judge. the judgmental standers are honesty, clarity and easy to read. please rate the answer from 1 to 3. 1 means the content is unclear, worng and hard to understand, 2 means the content is unclear but correct, and 3 means the content is easy to understand, clear, and correct, provid explaination
- human:answer:
-
-I don't know.
- ai: I would rate this answer a 2. While the answer is clear and easy to understand, it is not correct as it does not provide any information or attempt to answer the question.

@@ -21,10 +21,9 @@ class Richmenu:
         j = 0
         temp = ""
         for i in req.text:
-            if i == "\"":
-                j = j + 1
-            elif (j >= 3) & (j != 4):
-                temp = temp + i     
+            if i == "\"": j = j + 1
+            elif (j >= 3) & (j != 4): temp = temp + i 
+                
         self.richmenu_id = temp
         
     # set up image, can only be excuted once

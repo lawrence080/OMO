@@ -1,0 +1,33 @@
+{
+    "type": "text",
+    "text": "from sys",
+    "quickReply": {
+        "items": [
+            {
+                "type": "action",
+                "imageUrl": "button1 image",
+                "action": {
+                    "type": "message",
+                    "label": "button label",
+                    "text": "user text"
+                }
+            },
+            {
+                "type": "action",
+                "imageUrl": "https://xxx/image2.png",
+                "action": {
+                    "type": "message",
+                    "label": "B.台中",
+                    "text": "台中"
+                }
+            },
+            {
+                "type": "action",
+                "action": {
+                    "type": "location",
+                    "label": "選擇地點"
+                }
+            }
+        ]
+    }
+}

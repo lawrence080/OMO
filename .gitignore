@@ -16,6 +16,9 @@ trainedData/
 /*DB.*
 /*Db.*
 .DS_Store
+/.\db/chroma-collections.parquet
+.\db/chroma-embeddings.parquet
+.\db
 
 # Distribution / packaging
 .Python

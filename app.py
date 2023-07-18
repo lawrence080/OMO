@@ -29,6 +29,7 @@ app = Flask(__name__)
 
 line_bot_api = LineBotApi(os.getenv("CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("CHANNEL_SECRET"))
+chatbot = AI()
 
 # get LINE info
 @app.route("/callback", methods=['POST'])
@@ -52,13 +53,13 @@ def callback():
 # when receive text message
 @handler.add(MessageEvent, message=TextMessage)
 def keyword(event):
-    chatbot = AI()
     # chatbot.askQuestion()
     # match event.message.text:
     #     case "A":
     #         reply = 'keyword a'
     #     case _:
     #         reply = event.message.text
+    reply = chatbot.askQuestion(event.message.text)
     line_bot_api.reply_message( event.reply_token, TextSendMessage(reply) )
     
 # when receive postback

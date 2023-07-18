@@ -6,9 +6,9 @@ from langchain.memory import ConversationBufferMemory
 from langchain.llms import OpenAI
 
 
-import APIsecret
+import OMO_aiBot.APIsecret
 import os
-from addPdf import addPdf2collecion
+from OMO_aiBot.addPdf import addPdf2collecion
 
 
 # from langchain.document_loaders import PyPDFDirectoryLoader
@@ -18,6 +18,7 @@ from addPdf import addPdf2collecion
 
 class Bot(addPdf2collecion):
     def __init__(self) -> None:
+        self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
         super().setOpenAIAPIkey()
     def bot(self,quesiton)->str:
         embeddings = OpenAIEmbeddings()
@@ -25,8 +26,7 @@ class Bot(addPdf2collecion):
         #                                  persist_directory=".\db")
         vectordb = Chroma(embedding_function=embeddings,persist_directory=".\db")
         vectordb.persist()
-        memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-        pdf_qa = ConversationalRetrievalChain.from_llm(OpenAI(temperature=0.8) , vectordb.as_retriever(), memory=memory)
+        pdf_qa = ConversationalRetrievalChain.from_llm(OpenAI(temperature=0.8) , vectordb.as_retriever(), memory = self.memory)
         query = quesiton
         result = pdf_qa({"question": query})
         # print(result["answer"])

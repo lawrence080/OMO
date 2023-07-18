@@ -1,4 +1,4 @@
-import APIsecret
+import OMO_aiBot.APIsecret
 import os
 from langchain.document_loaders import DirectoryLoader
 from langchain.text_splitter import CharacterTextSplitter
@@ -10,7 +10,7 @@ class addtxt2collecion:
         self.setOpenAIAPIkey()
 
     def setOpenAIAPIkey(self):
-        os.environ["OPENAI_API_KEY"] = APIsecret.OPEN_API_KEY
+        os.environ["OPENAI_API_KEY"] = OMO_aiBot.APIsecret.OPEN_API_KEY
     def addFile(self):
         self.text_folder_path = "C:\\Users\\lawrence\\Desktop\\Job\\demo project\\OMO\\trainedData"
         loaders = DirectoryLoader(self.text_folder_path,glob='**/*.txt')

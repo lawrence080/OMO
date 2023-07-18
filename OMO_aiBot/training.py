@@ -9,10 +9,10 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts import StringPromptTemplate
 
 
-import APIsecret
+import OMO_aiBot.APIsecret
 import os
 
-from Bot import Bot
+from OMO_aiBot.Bot import Bot
 from langchain import ConversationChain
 from langchain.prompts.chat import (
     ChatPromptTemplate,

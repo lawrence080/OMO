@@ -6,7 +6,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.llms import OpenAI
 
 
-import APIsecret
+import OMO_aiBot.APIsecret
 import os
 
 class addPdf2collecion:
@@ -14,7 +14,7 @@ class addPdf2collecion:
         self.setOpenAIAPIkey()
 
     def setOpenAIAPIkey(self):
-        os.environ["OPENAI_API_KEY"] = APIsecret.OPEN_API_KEY
+        os.environ["OPENAI_API_KEY"] = OMO_aiBot.APIsecret.OPEN_API_KEY
     def addFile(self):
         from langchain.document_loaders import PyPDFDirectoryLoader
         self.pdf_folder_path = "C:\\Users\\lawrence\\Desktop\\Job\\demo project\\OMO\\data"

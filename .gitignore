@@ -19,7 +19,7 @@ trainedData/
 .\\db/chroma-collections.parquet
 .\\db/chroma-embeddings.parquet
 .\\db/
-test.py
+/test.py
 
 # Distribution / packaging
 .Python

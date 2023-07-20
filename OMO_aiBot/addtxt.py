@@ -1,4 +1,4 @@
-import OMO_aiBot.APIsecret
+import APIsecret
 import os
 from langchain.document_loaders import DirectoryLoader
 from langchain.text_splitter import CharacterTextSplitter
@@ -10,9 +10,9 @@ class addtxt2collecion:
         self.setOpenAIAPIkey()
 
     def setOpenAIAPIkey(self):
-        os.environ["OPENAI_API_KEY"] = OMO_aiBot.APIsecret.OPEN_API_KEY
+        os.environ["OPENAI_API_KEY"] = APIsecret.OPEN_API_KEY
     def addFile(self):
-        self.text_folder_path = "C:\\Users\\lawrence\\Desktop\\Job\\demo project\\OMO\\trainedData"
+        self.text_folder_path = "OMO_aiBot\\trainedData"
         loaders = DirectoryLoader(self.text_folder_path,glob='**/*.txt')
         docs = loaders.load()
         Text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
@@ -20,6 +20,6 @@ class addtxt2collecion:
         # self.loader = PyPDFDirectoryLoader(self.pdf_folder_path)
         # self.docs = self.loader.load()
         embeddings = OpenAIEmbeddings()
-        vectordb = Chroma(embedding_function=embeddings,persist_directory=".\db")
+        vectordb = Chroma(embedding_function=embeddings,persist_directory="db")
         vectordb.persist()
         Chroma.add_documents(self=vectordb,documents = doc_text)

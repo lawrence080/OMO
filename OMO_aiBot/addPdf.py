@@ -4,23 +4,23 @@ from langchain.vectorstores import Chroma
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 from langchain.llms import OpenAI
+from langchain.document_loaders import PyPDFDirectoryLoader
 
-
-import OMO_aiBot.APIsecret
+import APIsecret
+from addFile import addFile
 import os
 
-class addPdf2collecion:
+class addPdf2collecion(addFile):
     def __init__(self) -> None:
         self.setOpenAIAPIkey()
 
     def setOpenAIAPIkey(self):
-        os.environ["OPENAI_API_KEY"] = OMO_aiBot.APIsecret.OPEN_API_KEY
+        os.environ["OPENAI_API_KEY"] = APIsecret.OPEN_API_KEY
     def addFile(self):
-        from langchain.document_loaders import PyPDFDirectoryLoader
-        self.pdf_folder_path = "C:\\Users\\lawrence\\Desktop\\Job\\demo project\\OMO\\data"
+        self.pdf_folder_path = "OMO_aiBot\\pdftrainData"
         self.loader = PyPDFDirectoryLoader(self.pdf_folder_path)
         self.docs = self.loader.load()
         embeddings = OpenAIEmbeddings()
-        vectordb = Chroma(embedding_function=embeddings,persist_directory=".\db")
+        vectordb = Chroma(embedding_function=embeddings,persist_directory="db")
         vectordb.persist()
         Chroma.add_documents(self=vectordb,documents = self.docs)

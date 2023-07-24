@@ -30,3 +30,13 @@ class Reservation():
         send_message = FlexSendMessage( alt_text="show on computer", contents=reply)
         return send_message
     
+class Map():
+    def __init__(self) -> None:
+        pass
+    
+    def store_fliter_area(event):
+        file_path = os.path.join(os.path.split(__file__)[0] + '/static/flex_message_template/reservation_confirm.json' )
+        with open(file_path) as f:
+            reply = json.load(f)
+        send_message = FlexSendMessage( alt_text="show on computer", contents=reply)
+        return send_message

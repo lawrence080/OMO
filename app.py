@@ -79,7 +79,7 @@ class main:
                         send_message = TextSendMessage(reply)
                     case "門市查詢":
                         reply = "門市查詢"
-                        send_message = TextSendMessage(reply)
+                        send_message = TextSendMessage(reply) 
                     case _:
                         reply = "echo: " + event.message.text
                         send_message = TextSendMessage(reply)

@@ -4,6 +4,7 @@ load_dotenv()
 import openai
 from OMO_aiBot.main import AI
 openai.api_key = os.getenv("OPEN_AI_KEY")
+
 # import flask related
 from flask import Flask, request, abort
 from urllib.parse import parse_qsl
@@ -142,4 +143,3 @@ class main:
 # run app
 if __name__ == "__main__":
     main = main()
-#    app.run(host='127.0.0.1', port=5566)

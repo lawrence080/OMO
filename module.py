@@ -23,8 +23,26 @@ class Reservation():
     def __init__(self) -> None:
         pass
     
-    def reservation_confirm(event):
+    def reservation_confirm():
         file_path = os.path.join(os.path.split(__file__)[0] + '/static/flex_message_template/reservation_confirm.json' )
+        with open(file_path) as f:
+            reply = json.load(f)
+        send_message = FlexSendMessage( alt_text="show on computer", contents=reply)
+        return send_message
+    
+    def reservation_select():
+        file_path = os.path.join(os.path.split(__file__)[0] + '/static/flex_message_template/reservation_select.json' )
+        with open(file_path) as f:
+            reply = json.load(f)
+        send_message = FlexSendMessage( alt_text="show on computer", contents=reply)
+        return send_message
+
+class News():
+    def __init__(self) -> None:
+        pass 
+    
+    def show_new_event():
+        file_path = os.path.join(os.path.split(__file__)[0] + '/static/flex_message_template/news.json' )
         with open(file_path) as f:
             reply = json.load(f)
         send_message = FlexSendMessage( alt_text="show on computer", contents=reply)
@@ -34,8 +52,8 @@ class Map():
     def __init__(self) -> None:
         pass
     
-    def store_fliter_area(event):
-        file_path = os.path.join(os.path.split(__file__)[0] + '/static/flex_message_template/reservation_confirm.json' )
+    def store_fliter_area():
+        file_path = os.path.join(os.path.split(__file__)[0] + '/static/flex_message_template/store_area.json' )
         with open(file_path) as f:
             reply = json.load(f)
         send_message = FlexSendMessage( alt_text="show on computer", contents=reply)

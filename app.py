@@ -18,10 +18,10 @@ from linebot.models import (
     LocationSendMessage, ImageSendMessage, StickerSendMessage,
     VideoSendMessage, TemplateSendMessage, ButtonsTemplate, PostbackAction, MessageAction, URIAction,
     PostbackEvent, ConfirmTemplate, CarouselTemplate, CarouselColumn,
-    ImageCarouselTemplate, ImageCarouselColumn, FlexSendMessage
+    ImageCarouselTemplate, ImageCarouselColumn, FlexSendMessage, QuickReply
 )
 import json
-from module import Reservation
+from module import *
 
 # create flask server
 app = Flask(__name__)
@@ -36,7 +36,7 @@ class main:
         global flag
         flag = False
         port = int(os.environ.get('PORT', 5000))
-        app.run(host='0.0.0.0', port=port)
+        app.run(host='0.0.0.0', port='5566')
     
     # get LINE info
     @app.route("/callback", methods=['POST'])
@@ -66,23 +66,26 @@ class main:
             case True:
                 reply = chatbot.askQuestion(event.message.text)
                 send_message = TextSendMessage(reply)
+                
             case False:
                 match event.message.text:
                     case "最新優惠":
-                        with open("/Users/ying/OMO/static/flex_message_template/sample.json") as f:
-                            reply = json.load(f)
-                        send_message = FlexSendMessage( alt_text="show on computer", contents=reply)
+                        send_message = News.show_new_event()
                     case "我要預約":
-                        send_message = Reservation.reservation_confirm(event)
+                        send_message = Reservation.reservation_confirm()
                     case "會員":
-                        reply = "會員"
+                        reply = "會員資料"
                         send_message = TextSendMessage(reply)
+                        # with open("/Users/ying/OMO/static/quick_reply_template/quick_reply_test.json") as f:
+                        #     reply = json.load(f)
+                        # send_message = TextSendMessage(text="會員", quick_reply = QuickReply(reply))
                     case "門市查詢":
                         reply = "門市查詢"
-                        send_message = TextSendMessage(reply) 
+                        send_message = Map.store_fliter_area() 
                     case _:
                         reply = "echo: " + event.message.text
                         send_message = TextSendMessage(reply)
+                        
         line_bot_api.reply_message( event.reply_token, send_message )
         
     # when receive postback
@@ -90,21 +93,47 @@ class main:
     def handle_postback(event):
         global flag
         match event.postback.data:
-            case 'ai-on':
+            
+            # when click on richmenu aera B to turn on/off AI
+            case "ai-on":
                 flag = True
-                reply = 'whats your problem'
+                reply = "whats your problem"
                 send_message = TextSendMessage(reply)
-            case 'ai-close':
+            case "ai-close":
                 flag = False
-                reply = 'byeeeeeee'
+                reply = "byeeeeeee"
                 send_message = TextSendMessage(reply)
-            case 'reservation-yes':
-                flag = False
-                reply = '預約成功'
+                
+            # when confirm the action of reservation
+            case "reservation-yes":
+                send_message = Reservation.reservation_select()
+            case "reservation-no":
+                reply = "取消預約"
                 send_message = TextSendMessage(reply)
-            case 'reservation-no':
-                flag = False
-                reply = '預約失敗'
+                
+            # when choosing which type of service the user wants to make a reservation
+            case "reservation-instore":
+                reply = "現場"
+                send_message = TextSendMessage(reply)
+            case "reservation-online":
+                reply = "線上"
+                send_message = TextSendMessage(reply)
+                
+            case "check_north_store":
+                reply = "北部"
+                send_message = TextSendMessage(reply)
+            case "check_mid_store":
+                reply = "中部"
+                send_message = TextSendMessage(reply)
+            case "check_south_store":
+                reply = "南部"
+                send_message = TextSendMessage(reply)
+            case "check_east_store":
+                reply = "東部"
+                send_message = TextSendMessage(reply)
+                
+            case "quick_reply_test":
+                reply = "receive postback"
                 send_message = TextSendMessage(reply)
                 
         line_bot_api.reply_message( event.reply_token, send_message )

@@ -1,0 +1,60 @@
+{
+    "type": "bubble",
+    "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "text",
+                "text": "Which one?",
+                "weight": "regular",
+                "size": "md",
+                "contents": []
+            },
+            {
+                "type": "separator",
+                "margin": "none",
+                "color": "#FFFFFF"
+            }
+        ],
+        "spacing": "none",
+        "action": {
+            "type": "uri",
+            "label": "view_detail",
+            "uri": "http://www.yourchance.com.tw/index.php?lang=cht"
+        }
+    },
+    "footer": {
+        "type": "box",
+        "layout": "horizontal",
+        "spacing": "sm",
+        "contents": [
+            {
+                "type": "button",
+                "style": "link",
+                "height": "sm",
+                "action": {
+                    "type": "postback",
+                    "label": "現場",
+                    "data": "reservation-instore"
+                }
+            },
+            {
+                "type": "button",
+                "style": "link",
+                "height": "sm",
+                "action": {
+                    "type": "postback",
+                    "label": "線上",
+                    "data": "reservation-online"
+                }
+            }
+        ],
+        "flex": 0
+    },
+    "styles": {
+        "header": {
+            "separator": false
+        }
+    }
+}

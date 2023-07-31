@@ -62,7 +62,6 @@ class main:
     @handler.add(MessageEvent, message=TextMessage)
     def handle_text(event):
         global flag
-        print(flag)
         match flag:
             case True:
                 reply = chatbot.askQuestion(event.message.text)
@@ -75,11 +74,7 @@ class main:
                     case "我要預約":
                         send_message = Reservation.reservation_confirm()
                     case "會員":
-                        reply = "會員資料"
-                        send_message = TextSendMessage(reply)
-                        # with open("/Users/ying/OMO/static/quick_reply_template/quick_reply_test.json") as f:
-                        #     reply = json.load(f)
-                        # send_message = TextSendMessage(text="會員", quick_reply = QuickReply(reply))
+                        send_message = Member.quick_reply_test()
                     case "門市查詢":
                         reply = "門市查詢"
                         send_message = Map.store_fliter_area() 
@@ -95,7 +90,7 @@ class main:
         global flag
         match event.postback.data:
             
-            # when click on richmenu aera B to turn on/off AI
+            # when click on richmenu area B to turn on/off AI
             case "ai-on":
                 flag = True
                 reply = "whats your problem"
@@ -119,7 +114,8 @@ class main:
             case "reservation-online":
                 reply = "線上"
                 send_message = TextSendMessage(reply)
-                
+            
+            # when look up for stores in different areas  
             case "check_north_store":
                 reply = "北部"
                 send_message = TextSendMessage(reply)

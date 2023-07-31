@@ -12,28 +12,34 @@ from linebot.models import (
     LocationSendMessage, ImageSendMessage, StickerSendMessage,
     VideoSendMessage, TemplateSendMessage, ButtonsTemplate, PostbackAction, MessageAction, URIAction,
     PostbackEvent, ConfirmTemplate, CarouselTemplate, CarouselColumn,
-    ImageCarouselTemplate, ImageCarouselColumn, FlexSendMessage
+    ImageCarouselTemplate, ImageCarouselColumn, FlexSendMessage, QuickReply
 )
 import json
 
 line_bot_api = LineBotApi(os.getenv("CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("CHANNEL_SECRET"))
 
+class File():
+    def __init__(self) -> None:
+        pass
+    
+    def read_file(file_path):
+        file_path = os.path.join(os.path.split(__file__)[0] + file_path)
+        with open(file_path) as f:
+            reply = json.load(f)
+        return reply       
+
 class Reservation():
     def __init__(self) -> None:
         pass
     
     def reservation_confirm():
-        file_path = os.path.join(os.path.split(__file__)[0] + '/static/flex_message_template/reservation_confirm.json' )
-        with open(file_path) as f:
-            reply = json.load(f)
+        reply = File.read_file("/static/flex_message_template/reservation_confirm.json")
         send_message = FlexSendMessage( alt_text="show on computer", contents=reply)
         return send_message
     
     def reservation_select():
-        file_path = os.path.join(os.path.split(__file__)[0] + '/static/flex_message_template/reservation_select.json' )
-        with open(file_path) as f:
-            reply = json.load(f)
+        reply = File.read_file("/static/flex_message_template/reservation_select.json")
         send_message = FlexSendMessage( alt_text="show on computer", contents=reply)
         return send_message
 
@@ -42,9 +48,7 @@ class News():
         pass 
     
     def show_new_event():
-        file_path = os.path.join(os.path.split(__file__)[0] + '/static/flex_message_template/news.json' )
-        with open(file_path) as f:
-            reply = json.load(f)
+        reply = File.read_file("/static/flex_message_template/news.json")
         send_message = FlexSendMessage( alt_text="show on computer", contents=reply)
         return send_message
     
@@ -53,8 +57,22 @@ class Map():
         pass
     
     def store_fliter_area():
-        file_path = os.path.join(os.path.split(__file__)[0] + '/static/flex_message_template/store_area.json' )
-        with open(file_path) as f:
-            reply = json.load(f)
+        reply = File.read_file("/static/flex_message_template/store_area.json")
         send_message = FlexSendMessage( alt_text="show on computer", contents=reply)
+        return send_message
+
+    def check_north_stores():
+        reply = "north"
+        send_message = TextMessage(reply)
+        return send_message
+    
+class Member():
+    def __init__(self) -> None:
+        pass
+    
+    def quick_reply_test():
+        file_path = os.path.join(os.path.split(__file__)[0] + "/static/quick_reply_template/quick_reply_test.json")
+        with open(file_path) as f:
+            reply = QuickReply(items=json.load(f))
+        send_message = TextSendMessage(text="quick reply test", quick_reply=reply)
         return send_message

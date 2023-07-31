@@ -1,38 +1,32 @@
-{
-    "type": "text",
-    "text": "from sys",
-    "quickReply": {
-        "items": [
-            {
-                "type": "action",
-                "action": {
-                    "type": "message",
-                    "label": "send message",
-                    "text": "from quick reply"
-                }
-            },
-            {
-                "type": "action",
-                "action": {
-                    "type": "postback",
-                    "label": "send postback",
-                    "data": "quick_reply_test"
-                }
-            },
-            {
-                "type": "action",
-                "action": {
-                    "type": "camera",
-                    "label": "Camera"
-                }
-            },
-            {
-                "type": "action",
-                "action": {
-                    "type": "cameraRoll",
-                    "label": "Camera Roll"
-                }
-            }
-        ]
+[
+    {
+        "type": "action",
+        "action": {
+            "type": "message",
+            "label": "send message",
+            "text": "from quick reply"
+        }
+    },
+    {
+        "type": "action",
+        "action": {
+            "type": "postback",
+            "label": "send postback",                    
+            "data": "quick_reply_test"
+        }
+    },
+    {
+        "type": "action",
+        "action": {
+            "type": "camera",
+            "label": "Camera"
+        }
+    },
+    {
+        "type": "action",
+        "action": {
+            "type": "cameraRoll",
+            "label": "Camera Roll"
+        }
     }
-}
+]

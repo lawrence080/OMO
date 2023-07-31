@@ -34,8 +34,8 @@ chatbot = AI()
 class main:
     
     def __init__(self) -> None: 
-        global flag
-        flag = False
+        global ai_flag
+        ai_flag = False
         port = int(os.environ.get('PORT', 5000))
         app.run(host='0.0.0.0', port='5566')
     
@@ -61,8 +61,8 @@ class main:
     # when receive text message
     @handler.add(MessageEvent, message=TextMessage)
     def handle_text(event):
-        global flags
-        match flag:
+        global ai_flag
+        match ai_flag:
             case True:
                 reply = chatbot.askQuestion(event.message.text)
                 send_message = TextSendMessage(reply)
@@ -87,12 +87,12 @@ class main:
     # when receive postback
     @handler.add(PostbackEvent)
     def handle_postback(event):
-        global flag
+        global ai_flag
         match event.postback.data:
             
             # when click on richmenu area B to turn on/off AI
             case "ai-on":
-                flag = True
+                ai_flag = True
                 reply = "whats your problem"
                 send_message = TextSendMessage(reply)
             case "ai-close":

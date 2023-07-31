@@ -66,13 +66,26 @@ class Map():
         send_message = TextMessage(reply)
         return send_message
     
+    def check_mid_stores():
+        reply = "mid"
+        send_message = TextMessage(reply)
+        return send_message
+    
+    def check_south_stores():
+        reply = "south"
+        send_message = TextMessage(reply)
+        return send_message
+    
+    def check_east_store():
+        reply = "east"
+        send_message = TextMessage(reply)
+        return send_message
+    
 class Member():
     def __init__(self) -> None:
         pass
     
     def quick_reply_test():
-        file_path = os.path.join(os.path.split(__file__)[0] + "/static/quick_reply_template/quick_reply_test.json")
-        with open(file_path) as f:
-            reply = QuickReply(items=json.load(f))
+        reply = QuickReply(items=File.read_file("/static/quick_reply_template/quick_reply_test.json"))
         send_message = TextSendMessage(text="quick reply test", quick_reply=reply)
         return send_message

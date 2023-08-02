@@ -96,7 +96,7 @@ class main:
                 reply = "whats your problem"
                 send_message = TextSendMessage(reply)
             case "ai-close":
-                flag = False
+                ai_flag = False
                 reply = "byeeeeeee"
                 send_message = TextSendMessage(reply)
                 

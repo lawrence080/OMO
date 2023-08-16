@@ -6,20 +6,16 @@ __pycache__/
 # C extensions
 *.so
 
-OMO_aiBot/APIsecret.py
+/OMO_aiBot/APIsecret.py
+
+# data
 db/
 data/
 .chroma/
 trainedData/
 .\\db/
-.db/
-/*DB.*
-/*Db.*
+
 .DS_Store
-.\\db/chroma-collections.parquet
-.\\db/chroma-embeddings.parquet
-.\\db/
-/test.py
 
 # Distribution / packaging
 .Python

@@ -26,13 +26,10 @@ from module import *
 
 # create flask server
 app = Flask(__name__)
-
 line_bot_api = LineBotApi(os.getenv("CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("CHANNEL_SECRET"))
-chatbot = AI()
- 
+
 class main:
-    
     def __init__(self) -> None: 
         global ai_flag
         ai_flag = False
@@ -62,8 +59,10 @@ class main:
     @handler.add(MessageEvent, message=TextMessage)
     def handle_text(event):
         global ai_flag
+        print(ai_flag)
         match ai_flag:
             case True:
+                chatbot = AI()
                 reply = chatbot.askQuestion(event.message.text)
                 send_message = TextSendMessage(reply)
                 
@@ -88,6 +87,7 @@ class main:
     @handler.add(PostbackEvent)
     def handle_postback(event):
         global ai_flag
+        print(ai_flag)
         match event.postback.data:
             
             # when click on richmenu area B to turn on/off AI

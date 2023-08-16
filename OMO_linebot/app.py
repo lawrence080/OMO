@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 load_dotenv()
 import openai
 from OMO_aiBot.main import AI
-openai.api_key = os.getenv("OPEN_AI_KEY")
 
 # import flask related
 from flask import Flask, request, abort

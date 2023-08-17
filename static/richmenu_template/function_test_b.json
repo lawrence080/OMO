@@ -1,38 +1,32 @@
 {
     "size": { "width": 2500, "height": 1686},
     "selected": "true",
-    "name": "richmenu_name",
+    "name": "function_test_b",
     "chatBarText": "Tap here",
     "areas": [
-        # area A
         {
             "bounds": { "x": 0, "y": 0, "width": 833, "height": 843},
-            "action": { "type": "message", "label": "A", "text": "A"}
+            "action": { "type": "message", "label": "news", "text": "最新優惠"}
         },
-        # area B
         {
             "bounds": { "x": 834, "y": 0, "width": 833, "height": 843},
-            "action": { "type": "message", "label": "B", "text": "B"}
+            "action": {"type": "richmenuswitch", "label": "ai-switch", "richMenuAliasId": "ai-close", "data": "ai-close"}
         },
-        # area C
         {
             "bounds": { "x": 1667, "y": 0, "width": 833, "height": 843},
-            "action": { "type": "message", "label": "C", "text": "C"}
+            "action": { "type": "message", "label": "reservation", "text": "我要預約"}
         },
-        # area D
         {
             "bounds": { "x": 0, "y": 844, "width": 833, "height": 843},
-            "action": { "type": "message", "label": "D", "text": "D"}
+            "action": { "type": "message", "label": "membership", "text": "會員"}
         },
-        # area E
         {
             "bounds": { "x": 834, "y": 844, "width": 833, "height": 843},
-            "action": { "type": "message", "label": "E", "text": "E"}
+            "action": { "type": "uri", "label": "link", "uri": "http://www.yourchance.com.tw/index.php?lang=cht"}
         },
-        # area F
         {
             "bounds": { "x": 1667, "y": 844, "width": 833, "height": 843},
-            "action": { "type": "message", "label": "F", "text": "F"}
+            "action": { "type": "message", "label": "map", "text": "門市查詢"}
         }
     ]
 }

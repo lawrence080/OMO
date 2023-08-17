@@ -47,17 +47,28 @@ class Richmenu:
         print(req.text)
         rich_menu_list = line_bot_api.get_rich_menu_list()
 
+    # set rich menu to default
+    def default_richmenu(self):
+        line_bot_api.set_default_rich_menu(self.richmenu_id)
+
     # need to delete ID first to reset
-    def del_richmenu(self):
-        line_bot_api.delete_rich_menu(self.richmenu_id)
+    def del_richmenu(richmenu_id):
+        line_bot_api.delete_rich_menu(richmenu_id)
+        
+    def show_richmenu():
+        rich_menu_list = line_bot_api.get_rich_menu_list
+        for rich_menu in rich_menu_list:
+            print("name: " + rich_menu.name)
+            print("id: " + rich_menu.rich_menu_id + "\n")
 
 # set up rich menu        
-the_richmenu = '/six_blocks.json'
+the_richmenu = '/function_test_b.json'
 file_path = os.path.join(os.path.split(__file__)[0] + '/static/richmenu_template' + the_richmenu)
 with open(file_path) as f:
     body = json.load(f)
 
-# b = Richmenu(body)   
-# b.set_image("/Users/ying/OMO/OMO_linebot/static/image/first_rich_menu.png")
-# b.set_alias_id("first")
-# b.post_richmenu()
+r = Richmenu(body)   
+r.set_image("/Users/ying/OMO/static/image/function_test_b.png")
+r.set_alias_id("ai-on")
+r.post_richmenu()
+# r.default_richmenu()

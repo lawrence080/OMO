@@ -1,0 +1,32 @@
+{
+    "size": { "width": 2500, "height": 1686},
+    "selected": "true",
+    "name": "function_test",
+    "chatBarText": "Tap here",
+    "areas": [
+        {
+            "bounds": { "x": 0, "y": 0, "width": 833, "height": 843},
+            "action": { "type": "message", "label": "news", "text": "最新優惠"}
+        },
+        {
+            "bounds": { "x": 834, "y": 0, "width": 833, "height": 843},
+            "action": {"type": "richmenuswitch", "label": "ai-switch", "richMenuAliasId": "ai-on", "data": "ai-on"}
+        },
+        {
+            "bounds": { "x": 1667, "y": 0, "width": 833, "height": 843},
+            "action": { "type": "message", "label": "reservation", "text": "我要預約"}
+        },
+        {
+            "bounds": { "x": 0, "y": 844, "width": 833, "height": 843},
+            "action": { "type": "message", "label": "membership", "text": "會員"}
+        },
+        {
+            "bounds": { "x": 834, "y": 844, "width": 833, "height": 843},
+            "action": { "type": "uri", "label": "link", "uri": "http://www.yourchance.com.tw/index.php?lang=cht"}
+        },
+        {
+            "bounds": { "x": 1667, "y": 844, "width": 833, "height": 843},
+            "action": { "type": "message", "label": "map", "text": "門市查詢"}
+        }
+    ]
+}

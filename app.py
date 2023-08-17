@@ -58,8 +58,8 @@ class main:
     # when receive text message
     @handler.add(MessageEvent, message=TextMessage)
     def handle_text(event):
-        global ai_flag
-        print(ai_flag)
+        global ai_flag # to make AI switch
+        # print(ai_flag)
         match ai_flag:
             case True:
                 chatbot = AI()
@@ -87,7 +87,7 @@ class main:
     @handler.add(PostbackEvent)
     def handle_postback(event):
         global ai_flag
-        print(ai_flag)
+        # print(ai_flag)
         match event.postback.data:
             
             # when click on richmenu area B to turn on/off AI

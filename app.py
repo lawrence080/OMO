@@ -75,11 +75,11 @@ class main:
     def call_ai(event):
         global flag
         match event.postback.data:
-            case 'change-to-bbb':
+            case 'ai-on':
                 flag = True
                 reply = 'whats your problem'
                 print(flag)
-            case 'change-to-aaa':
+            case 'ai-close':
                 flag = False
                 reply = 'close ai'
                 print(flag)

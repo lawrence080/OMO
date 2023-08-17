@@ -134,7 +134,7 @@ class main:
                 send_message = TextSendMessage(reply)
                 
         line_bot_api.reply_message( event.reply_token, send_message )
-        
+
 
 # run app
 if __name__ == "__main__":
